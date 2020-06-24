@@ -1,0 +1,12 @@
+	ALIGN 4
+	SnowVillageImage:
+	#incbin "MapStuff/Snow Village v1 snow harbor v1.dmp"
+	ALIGN 4
+	SnowVillagePalette:
+	#incbin "MapStuff/Snow Village v1 snow harbor v1_pal.dmp"
+	ALIGN 4
+	SnowVillageMapConfig:
+	#incbin "MapStuff/Snow Village v1 snow harbor v1 _comp.dmp"
+	EventPointerTable(0x51, SnowVillagePalette)
+	EventPointerTable(0x52, SnowVillageMapConfig)
+	EventPointerTable(0x50, SnowVillageImage)
