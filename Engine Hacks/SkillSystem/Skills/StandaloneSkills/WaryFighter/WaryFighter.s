@@ -65,7 +65,7 @@ sub   r1,r3,r2    @Attacker-defender
 cmp   r1,#0x0
 ble   DefDoubAtk
 
-cmp   r1,#0x3
+cmp   r1,#0x4
 ble   RetFalse
 
 str   r5,[r4]
@@ -74,7 +74,7 @@ b   Label1
 
 DefDoubAtk:
 sub   r1,r2,r3
-cmp   r1,#0x3
+cmp   r1,#0x4
 ble   RetFalse
 
 str   r6,[r4]

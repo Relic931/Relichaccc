@@ -1,0 +1,161 @@
+EventPointerTable(0x0D, PointerList)
+
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+TurnBasedEvents:
+TurnEventPlayer(0x24, TurnEvent1, 9)
+TurnEventPlayer(0x26, TurnEvent2, 2)
+END_MAIN
+
+TurnEvent1:
+ASMC 0x00D391
+NoFade
+ENDA
+
+TurnEvent2:
+SVAL 0x1 0x00000400
+CHAI [0, 0]
+ENDA
+
+ALIGN 32
+CharacterBasedEvents:
+CharacterEventBothWays(0x25, CavTak, Colm, Innes)
+END_MAIN
+
+CavTak:
+CUSA Colm
+ENDA
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+AFEV 0x23 WinChap 0x22
+AREA 0x1C DeadVillage [2, 2] [2, 2]
+AREA 0x1C DeadVillage [22, 1] [22, 1]
+END_MAIN
+
+WinChap:
+ENUF 0x23
+ENUF 0x22
+CHECK_EVENTID 0xC
+BEQ 2 0x0 0xC
+CHECK_EVENTID 0xD
+BEQ 2 0x0 0xC
+CALL EndingScene
+LABEL 2
+ENDA
+
+DeadVillage:
+SVAL 0x1 2
+CHECK_ALLEGIANCE 0xFFFF //check allegiance of current character, puts 0 for player, 1 for npc, 2 for enemy in slot 0xC I think
+BNE 1 1 0xC
+ASMC 0x00D391
+GOTO 2
+LABEL 1
+ENUF 0x1C
+LABEL 2
+NoFade
+ENDA
+
+LocationBasedEvents:
+	Village(0xD,LeftVillage,2,2)
+	Village(0xC,RightVillage,22,1)	
+	Armory(C3Armory,1,7)
+END_MAIN
+
+C3Armory:
+SHLI SlimSword SlimLance IronBow IronAxe 0x0
+ENDA
+
+LeftVillage:
+ENUT 0x22
+NoFade
+ENDA
+
+RightVillage:
+ENUT 0x22
+NoFade
+ENDA
+
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Units1:
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA12R9 [Rapier,Vulnerary] NoAI
+	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA11R9 [Vulnerary] NoAI
+	UNIT Seth Soldier 0x0 Level(7,Ally,0) [12,9] 0 0 1 REDA13R9 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
+	UNIT Gilliam Knight_F 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA14R9 [Vulnerary] NoAI
+	UNIT Franz Archer 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA15R9 [Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA16R9 [Heal, Vulnerary] NoAI
+	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA11R8 [SlimSword, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA13R8 [IronAxe, Vulnerary] NoAI
+	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [12,9] 0 0 1 REDA12R8 [IronBlade, Vulnerary] NoAI	
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA14R8 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA15R8 [Rapier,Vulnerary] NoAI	
+	UNIT
+Units2:
+	UNIT Garcia Shaman 0x0 Level(2, Ally, 0) [12, 9] 0 0 1 REDA13R7 [Flux] NoAI
+	UNIT Innes Bonewalker_Bow 0x0 Level(1, Ally, 0) [12, 9] 0 0 1 REDA1R1 [IronBow] NoAI
+	UNIT Colm Cavalier 0x0 Level(1, NPC, 0) [3, 7] 0 0 0 0 [SlimLance] GuardTileAI
+	UNIT
+
+EnemyUnits:
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,6] 0 0 0 0 [IronAxe] NeverMoveAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,7] 0 0 0 0 [IronAxe] NeverMoveAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [8,9] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [23,6] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [0,0] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [23,9] 0 0 0 0 [IronLance, SecretBook] NeverMoveAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [10,2] 0 0 0 0 [IronSword] AttackInRangeAI	
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [0,4] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [4,0] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,0] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [23,4] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [14,5] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [18,2] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [0, 9] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [21,7] 0 0 0 0 [IronAxe] AttackingBrigandAI
+	UNIT
+
+Traps1:
+ENDTRAP
+ALIGN 4
+
+Traps2:
+ENDTRAP
+ALIGN 4
+
+BeginningScene:
+LOAD2 0x1 Units1
+ENUN
+LOAD1 0x1 Units2
+ENUN
+LOAD1 0x1 EnemyUnits
+ENUN
+GotoPrepScreen
+ENDA
+
+EndingScene:
+MNC2 3
+NoFade
+ENDA

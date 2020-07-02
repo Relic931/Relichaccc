@@ -1,0 +1,6 @@
+	ALIGN 4
+	TransporterStanding:
+	#incbin "TransporterStanding.dmp"
+	ALIGN 4
+	TransporterMoving:
+	#incbin "TransporterMoving.dmp"

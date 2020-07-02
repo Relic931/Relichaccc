@@ -20,11 +20,14 @@
 	
 	//Graphics
 	#include "Graphics/Graphics Installer.event"
+	#include "Graphics/MapSprites/MapSpritesInstaller.event"	
 
     //Events
+	#include "Events/Event Installer.event"
 
     //Maps
     #include "Maps/Master Map Installer.event"
+	
     
     MESSAGE Used free space ends at currentOffset
 #else
