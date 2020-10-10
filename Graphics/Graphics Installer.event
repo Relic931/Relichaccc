@@ -10,3 +10,23 @@
 	EventPointerTable(0x51, SnowVillagePalette)
 	EventPointerTable(0x52, SnowVillageMapConfig)
 	EventPointerTable(0x50, SnowVillageImage)
+	ALIGN 4
+	VillageImage:
+	#incbin "MapStuff/Darker Green Grass + Dark Blue Water.dmp"
+	ALIGN 4
+	VillagePalette:
+	#incbin "MapStuff/Darker Green Grass + Dark Blue Water_pal.dmp"
+	ALIGN 4
+	VillageMapConfig:
+	#incext compress "MapStuff/Village Mapchip.mapchip_config"
+	EventPointerTable(0x0F, VillagePalette)
+	EventPointerTable(0x10, VillageMapConfig)
+	EventPointerTable(0x0E, VillageImage)
+	ALIGN 4
+	#include "MapSprites/MapSpritesInstaller.event"
+	ALIGN 4
+	#include "Portraits/PortraitInstaller.event"
+	ALIGN 4
+	#include "ConvoBGs/CBGInstaller.event"
+	ALIGN 4
+	#include "BattleAnims/BattleAnimsInstaller.event"

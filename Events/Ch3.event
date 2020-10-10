@@ -15,7 +15,13 @@ POIN BeginningScene EndingScene
 TurnBasedEvents:
 TurnEventPlayer(0x24, TurnEvent1, 9)
 TurnEventPlayer(0x26, TurnEvent2, 2)
+TurnEventPlayer(0x25, TurnEvent3, 5)
 END_MAIN
+
+TurnEvent3:
+LoadReinforcements(Turn5Bandits)
+NoFade
+ENDA
 
 TurnEvent1:
 ASMC 0x00D391
@@ -27,12 +33,16 @@ SVAL 0x1 0x00000400
 CHAI [0, 0]
 ENDA
 
+Turn5Bandits:
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [9,13] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [9,13] 0 0 0 0 [SlimSword] DefaultAI	
+
 ALIGN 32
 CharacterBasedEvents:
-CharacterEventBothWays(0x25, CavTak, Colm, Innes)
+CharacterEventBothWays(0x25, CavTalk, 0xB, 0x9)
 END_MAIN
 
-CavTak:
+CavTalk:
 CUSA Colm
 ENDA
 
@@ -73,7 +83,7 @@ LocationBasedEvents:
 END_MAIN
 
 C3Armory:
-SHLI SlimSword SlimLance IronBow IronAxe 0x0
+SHLI IronSword IronLance IronBow IronAxe 0x0
 ENDA
 
 LeftVillage:
@@ -107,7 +117,7 @@ Units1:
 	UNIT Franz Archer 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA15R9 [Vulnerary] NoAI
 	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA16R9 [Heal, Vulnerary] NoAI
 	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA11R8 [SlimSword, Vulnerary] NoAI
-	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA13R8 [IronAxe, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,9] 0 0 1 REDA13R8 [PoisonAxe, Vulnerary] NoAI
 	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [12,9] 0 0 1 REDA12R8 [IronBlade, Vulnerary] NoAI	
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA14R8 [Rapier,Vulnerary] NoAI
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,9] 0 0 1 REDA15R8 [Rapier,Vulnerary] NoAI	
@@ -119,21 +129,21 @@ Units2:
 	UNIT
 
 EnemyUnits:
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,6] 0 0 0 0 [IronAxe] NeverMoveAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,7] 0 0 0 0 [IronAxe] NeverMoveAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [8,9] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,6] 0 0 0 0 [PoisonAxe] NeverMoveAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [17,7] 0 0 0 0 [PoisonAxe] NeverMoveAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [8,9] 0 0 0 0 [SlimSword] DefaultAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [23,6] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [0,0] 0 0 0 0 [IronAxe] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [23,9] 0 0 0 0 [IronLance, SecretBook] NeverMoveAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [10,2] 0 0 0 0 [IronSword] AttackInRangeAI	
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [10,2] 0 0 0 0 [SlimSword] AttackInRangeAI	
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [0,4] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [4,0] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,0] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [23,4] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [4,0] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,0] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [23,4] 0 0 0 0 [SlimSword] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [14,5] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [18,2] 0 0 0 0 [IronSword] DefaultAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [0, 9] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [18,2] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [0, 9] 0 0 0 0 [SlimSword] AttackInRangeAI
 	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [21,7] 0 0 0 0 [IronAxe] AttackingBrigandAI
 	UNIT
 
@@ -146,6 +156,11 @@ ENDTRAP
 ALIGN 4
 
 BeginningScene:
+REMOVEPORTRAITS
+SetBackground(0x2)
+Text(0x0907)
+CALL $9EE2C4
+FADI 16
 LOAD2 0x1 Units1
 ENUN
 LOAD1 0x1 Units2

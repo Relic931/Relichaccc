@@ -1,21 +1,287 @@
 
+# 0x0C15
+Go with Oscar.[X]
+
+# 0x0C16
+Go with Frederik.[X]
+
+# 0x091B
+In this map, which is an[NL]
+[ToggleRed]Arrive[ToggleRed] map,[A][NL]
+[ToggleRed]only Frederik must reach[NL]
+the end.[A][X]
+
+# 0x0275
+A gruff veteran who is stuck[NL]
+in his ways, but knows when[NL]
+he needs to listen.[X]
+
+# 0x026E
+A bastard prince of Country.[NL]
+Sheltered and naive.[X]
+
+# 0x0273
+A quick-witted thief who[NL]
+has an extensive knowledge[NL]
+of the world.[X]
+
+# 0x0274
+An aimless soldier who[NL]
+joined a mercenary group just[NL]
+to fit in.[X]
+
+# 0x026F
+A skilled fighter, but[NL]
+distant, even from his[NL]
+friends.[X]
+
+# 0x0276
+Nicholas' sister and an[NL]
+inexperienced knight.[X]
+
+# 0x027C
+A humble, well traveled[NL]
+merchant who hails[NL]
+from the south.[X]
+
+# 0x0270
+A long-retired knight and[NL]
+Parker's overbearing mother.[X]
+
+# 0x0271
+A young archer with the burden[NL]
+of heightened expectations from[NL]
+those around him.[X]
+
+# 0x02F5
+Bow Armor[X]
+
+# 0x02E1
+Dark Mage[X]
+
+# 0x02ED
+Lnc. Soldier[X]
+
+# 0x02C3
+Axe Armor[X]
+
+# 0x02D9
+Lance Armor[X]
+
+# 0x02C8
+Samurai[X]
+
+# 0x02D8
+Axe Soldier[X]
+
+# 0x0226
+Peterson[X]
+# 0x0225
+Taeko[X]
+
+# 0x0222
+John[X]
+
+# 0x0221
+Jacob[X]
+
+# 0x021E
+Stevie[X]
+
+# 0x021F
+Miles[X]
+
+# 0x0223
+Adriana[X]
+
+# 0x0224
+Sab[X]
+
+# 0x021B
+Stratton[X]
+
+# 0x0216
+Jaco[X]
+
+# 0x0212
+Oscar[X]
+
+# 0x021D
+Kuroda[X]
+
+# 0x021C
+Nicholas[X]
+
+# 0x021A
+Genevieve[X]
+
+# 0x0213
+Brecker[X]
+
+# 0x0218
+Hancock[X]
+
+# 0x0215
+Parker[X]
+
+# 0x0214
+Melva[X]
+
+# 0x0217
+Everett[X]
+
+# 0x037D
+Bronze Axe[X]
+
+# 0x0219
+Rick[X]
+
+# 0x0301
+Griffon Kn.[X]
+
+# 0x093B
+[OpenMidLeft][LoadFace][0x5B][OpenMidRight][LoadFace][CurrentPortrait]
+[OpenMidLeft]Thank you for saving us![NL]
+Here, take this for your troubles.[A][X]
+
+# 0x093C
+[OpenMidRight][LoadFace][CurrentPortrait]
+[MidRight]Huh, there's a note here.[NL][A]
+"On the fifth day, the punished one must[NL]
+cross the bridge.[NL][A]
+On the eleventh hour of the sixth day,[NL]
+the sun will rise in the northeast."[A][X]
+
+# 0x093C
+[OpenMidLeft][LoadFace][0x5C][OpenMidRight][LoadFace][CurrentPortrait]
+[OpenMidLeft][X]
+
+# 0x0220
+Frederik[X]
+
+# 0x0382
+Imbued Axe[X]
+
+# 0x0432
+Does magic damage[.][X]
+
 # 0x036A
-Bronze Lance[X]
+Bronze Lnc.[X]
 
 # 0x0355
-Bronze Sword[X]
+Bronze Swd.[X]
 
 # 0x02F4
 Bow Knight[X]
 
+# 0x166
+Ch6: Brothers[X]
+
+# 0x0164
+Ch5: A Fork in the Road[X]
+
+# 0x0163
+Ch4: Old Friends[X]
+
+# 0x0162
+Ch3: Rising Tensions[X]
+
 # 0x161
 Ch2: New Friends[X]
 
+# 0x0912
+[FarRight][LoadJagen][Right][LoadMC][Left][LoadTransporter][FarLeft][LoadFace][0x10][0x1]
+[FarLeft]As you can see, the path is heavily guarded.[A][NL]
+They'll have griffon riders and pegasus[NL]
+riders coming in from all sides, too,[A][NL]
+once they realise we're here.[A]
+[Right]So we have to move quickly?[NL]
+I can do that.[A]
+[FarLeft]That's right.[A][NL]
+There's also the possibility[NL]
+that they'll get people to close in[anl]
+from behind us.[a]
+[Left]And what of those houses?[NL]
+It's a bit odd that people live here, no?[a]
+[FarLeft]It's well protected and alongside[NL]
+a well traveled road,[anl]
+so it's not as bad as you'd think.[NL]
+If you try to enter their homes, though,[anl]
+I don't know what'll happen.[a]
+
+# 0x0911
+[MidLeft][LoadTransporter][MidRight][LoadMC]
+[MidRight]So, you got us access?[A][NL]
+I'm tired of going around from town[NL]
+to town and collecting all the people up.[A]
+[MidLeft]Listen. These people would have[NL]
+died without us.[A][NL]
+If it means saving some lives,[NL]
+why wouldn't you be okay with what we've been doing?[A]
+[MidRight]It sounds a lot worse when[NL]
+you put it like that.[A][NL]
+Anyways, we're ready to go, right?[A]
+[MidLeft]Yeah. The bridge is heavily guarded,[A][NL]
+so a pegasus knight will be coming with[NL]
+us to make sure we get across alright.[A]
+[MidRight]Then let's get going.[A]
+[Clear][MidLeft]
+[MidRight]We've wasted enough time already...[A][X]
+
+# 0x0910
+[OpenMidLeft][LoadFace][0x5B][0x1][OpenMidRight][LoadCurrent]
+[OpenMidLeft]Oh! You must be traveling south.[NL]
+Take this with you.[A][X]
+
+# 0x0909
+[FarLeft][LoadTransporter][Left][LoadJagen][MidRight][LoadMC]
+[MidRight]So what's the plan now?[NL]
+And why are we out here, anyways?[A]
+[FarLeft]I know someone who can[NL]
+get us access to the landbridge[A][NL]
+we need to cross to get to safety.[NL]
+She lives over in that inn.[A]
+[Left]And what of those houses?[A]
+[FarLeft]These are soldiers, not bandits.[A][NL]
+They'll leave the people in the houses alone,[NL]
+but bandits might come out later.[A][NL]
+Is everyone clear on what we need to do?[A]
+[MidRight]Yep.[A][X]
+
+# 0x0908
+[FarRight][LoadMC][Right][LoadTransporter][Left][LoadJagen]
+[Left]We have to leave now.[A][NL]
+This village is a lost cause,[NL]
+and we've saved everyone we can.[A]
+[FarRight]Agreed.[A][NL]
+Let's get out of here.[A][X]
+
+# 0x0907
+[FarRight][LoadTransporter][Right][LoadMC][MidLeft][LoadFace][0x0F][0x1]
+[FarRight]Hello there.[NL]
+What are you doing out here?[A][NL]
+[MidLeft]I'm fleeing this village.[A][NL]
+The bandits that have been ravaging[NL]
+the entire north have gotten to[A][NL]
+my home.[A][NL]
+My sister has been left behind,[NL]
+but I don't know what to do.[A]
+[Right]You can come on with us, then.[A][NL]
+We're always happy to accept more[NL]
+people.[A]
+[FarRight]We can't just leave the village,[NL]
+Name.[A][NL]
+If there are more folks in danger there,[NL]
+take us to your home.[A][NL]
+If we can't protect the village,[A][NL]
+at least we can help evacuate[NL]
+the people there, including your sister.[A][X]
+
 # 0x0905
-[OpenMidRight][LoadFace][0x10][0x1][Left][LoadMC][FarLeft][LoadJagen]
+[OpenMidRight][LoadFace][0x14][0x1][Left][LoadMC][FarLeft][LoadJagen]
 [MidRight]We'll stop here for the night.[A]
 [Left][Clear][FarLeft][Clear]
-[Left][LoadFace][0x6][0x1][FarLeft][LoadFace][0x7][0x1]
+[Left][LoadFace][0x9][0x1][FarLeft][LoadFace][0x8][0x1]
 [Left]So, you all are heading south, huh?[A][NL]
 Sounds pretty good at a time like this.[A]
 [MidRight]Indeed it is.[A][NL]
@@ -31,36 +297,32 @@ I'd be fine with that.[A][NL]
 [Left]Just to be clear,[A][NL]
 we wouldn't have to bring[NL]
 any money or supplies, right?[A]
-[MidRight]Ah, there it is.[A][NL]
+[MidRight]Ah, there's the catch.[NL]
 No, we'll take care of it all.[A][X]
 
 # 0x0906
-[MidLeft][LoadMC][MidRight][LoadFace][0x10][0x1]
+[MidLeft][LoadMC][MidRight][LoadFace][0x14][0x1]
 [MidLeft]What was that?[A]
 [MidRight]Must be bandits![A][NL]
-Quick, we have to evacuate[NL]
-the village![A]
+Quick, we have to warn[NL]
+the villagers![A]
 [MidLeft]Alright.[NL]
 We'll need to be quick,[A][NL]
 since they probably have more[NL]
 backup coming soon,[A][NL]
 and from all sides.[A][NL]
-We can't afford to slow down.[A]
-[MidRight]Brigands will be coming from[NL]
-every corner of the town.[A][NL]
-We have to get to the houses[NL]
-as quickly as we can,[A][NL]
-or else they'll be destroyed.[A][X]
+We can't afford to slow down.[A][X]
 
 # 0x0918
-[OpenFarLeft][LoadFace][0x2][0x1][OpenLeft][LoadFace][0x4][0x1][OpenRight][LoadFace][0x10][0x1][OpenFarRight][LoadFace][0x5][0x1]
+[OpenFarLeft][LoadFace][0x2][0x1][OpenLeft][LoadFace][0x4][0x1][OpenRight][LoadFace][0x14][0x1][OpenFarRight][LoadFace][0x7][0x1]
 [OpenFarRight]I can't thank you enough[NL]
 for helping me back there.[A][NL]
 If you need healing, I'd be more[NL]
-than willing to lend you my staff.[A]
+than willing to lend you my staff.[A][NL]
+And take this money, too.[A]
 [OpenFarLeft]Thank you so much.[A][NL]
 [OpenFarRight][ClearFace]
-[OpenFarLeft]So, Name.[NL]
+[OpenFarLeft]So, Frederik,[NL]
 Where are we off to next?[A]
 [OpenRight]We should keep moving south.[A][NL]
 We can make it to Town in[NL]
@@ -81,26 +343,33 @@ Name, are you ready to go?[A]
 
 # 0x0903
 [OpenMidLeft][LoadFace][0x50][0x1][OpenMidRight][LoadFace][0x49][0x1]
-[OpenMidRight]Now that Father is dead,[NL]
-where is his will?[A]
-[OpenMidLeft]He hadn't written it.[A][NL]
-But seeing as I am the eldest son,[NL]
+[OpenMidRight]Now that Father is[NL]
+dead, where is his will?[A][NL]
+Surely he left the kingdom to[NL]
+me, his more competent sun.[A]
+[OpenMidLeft]He hadn't written it.[NL]
+But seeing as I am the eldest,[A][NL]
 it is only natural that[NL]
-I assume his position as king.[A]
+I take his position as king.[A]
 [OpenMidRight]Like hell it is![A][NL]
 You're so utterly incompetent,[A][NL]
 the country would fall the very day[NL]
-you assumed the position.[A]
-[OpenMidLeft]You will accept me as the ruler,[A][NL]
-or I will remove you from[NL]
-this castle at once![A]
-[OpenMidRight]You have no power over me![A][NL]
-I will bring my forces,[NL]
-and make you pay for this![A]
+you became king![A]
+[OpenMidLeft]The order of succession is[NL]
+simple, Name.[A][NL]
+If I am so incompetent,[NL]
+then why not simply wait for me[A][NL]
+to fail?[A]
+[OpenMidRight]I must be the ruler![A][NL]
+Even if you were only in power for one day,[NL]
+the damage would take a lifetime to repair.[A][NL]
+If you do not subside, I will wage war.[A]
 [OpenMidLeft]If it is war you desire, then it is[NL]
 war you will receive.[A][NL]
 I will mercilessly destroy you[NL]
-and show who the true ruler here is.[A]
+and show who the true ruler here is.[A][NL]
+And from the ashes will rise a new Country[NL]
+like there never has been before.[A]
 [OpenMidRight][ClearFace][OpenMidLeft][ClearFace]
 [OpenMidRight][LoadFace][0x2][0x1]
 [OpenMidRight]War...?[NL]
@@ -108,10 +377,10 @@ I can't stay here...[A][NL]
 Where should I go, though?[A]
 [OpenMidLeft][LoadFace][0x4][0x1]
 [OpenMidLeft]Perhaps we should seek refuge[NL]
-with that merchant friend of yours?[A][NL]
+with that old merchant friend of yours?[A][NL]
 I don't know of anyone else who would[NL]
 take us in.[A]
-[OpenMidRight]Name, you can't come![NL]
+[OpenMidRight]Brecker, you can't come![NL]
 It's too dangerous, you should stay here.[A]
 [OpenMidLeft]You know very well I can't leave you[NL]
 behind, Name.[A][NL]
@@ -120,8 +389,8 @@ escape with haste.[A]
 [OpenMidRight]Very well.[A][X]
 
 # 0x0904
-[OpenLeft][LoadFace][0x2][0x1][OpenFarLeft][LoadFace][0x4][0x1][OpenMidRight][LoadFace][0x10][0x1]
-[OpenLeft]Name, you've gotta help us![A]
+[OpenLeft][LoadFace][0x2][0x1][OpenFarLeft][LoadFace][0x4][0x1][OpenMidRight][LoadFace][0x14][0x1]
+[OpenLeft]Frederik, you've gotta help us![A]
 [OpenMidRight]Huh? Name?[A][NL]
 What are you doing outside of the[NL]
 castle? It's dangerous here.[A][NL]
@@ -132,23 +401,23 @@ began fighting.[A]
 safe for us anywhere.[A][NL]
 Name is third in line for the crown,[NL]
 and this makes him a prime target.[A]
-[OpenMidRight]I see.You [NL]
+[OpenMidRight]I see. You [NL]
 can come with me for now.[A][NL]
-I've got two friends of mine[NL]
-to help protect me,[A][NL]
-and they can protect you too.[A]
+I've gotten two friends of mine[NL]
+to help me out,[A][NL]
+so they can protect you.[A]
 [OpenLeft]I can fight myself, too![NL]
 Where are we headed?[A]
 [OpenMidRight]Down south, to Country.[A][NL]
 Right now, it's the only place[NL]
 we might be able to find refuge.[A]
 [OpenLeft][ClearFace][OpenFarLeft][ClearFace][OpenMidRight][ClearFace]
-[OpenMidRight][LoadFace][0x55][0x1]
+[OpenMidRight][LoadFace][0x4C][0x1]
 [OpenMidRight]Gahaha![NL]
 This place is ripe for looting![A][NL]
 Come on boys, let's grab all we can![A]
 [OpenMidRight][ClearFace]
-[OpenLeft][LoadFace][0x2][0x1][OpenFarLeft][LoadFace][0x4][0x1][OpenMidRight][LoadFace][0x10][0x1]
+[OpenLeft][LoadFace][0x2][0x1][OpenFarLeft][LoadFace][0x4][0x1][OpenMidRight][LoadFace][0x14][0x1]
 [OpenLeft]We have to go now![NL]
 These bandits are gonna get us![A]
 [OpenMidRight]No. We'll stay,[NL]
@@ -162,6 +431,15 @@ More are probably coming,[NL]
 and we can't afford to stick around.[A][NL]
 Let's get everyone out as soon as[NL]
 we can.[A][X]
+
+# 0x01A3
+Rout[X]
+
+# 0x01A7
+Arrive[X]
+
+# 0x01A6
+Visit Inn[X]
 
 # 0x01A2
 Visit Houses[X]

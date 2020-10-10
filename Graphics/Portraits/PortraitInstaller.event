@@ -1,0 +1,57 @@
+#include "Tools/Tool helpers.txt"
+
+ALIGN 4
+FrederikMug:
+#incext PortraitFormatter "Frederik.png"
+setMugEntry(0x14, FrederikMug, 3, 5, 3, 3)
+
+ALIGN 4
+EverettMug:
+#incext PortraitFormatter "Everett.png"
+setMugEntry(0x8, EverettMug, 2, 6, 2, 4)
+
+ALIGN 4
+MelvaMug:
+#incext PortraitFormatter "Melva.png"
+setMugEntry(0x5, MelvaMug, 3, 5, 3, 3)
+
+ALIGN 4
+MPegMug:
+#incext PortraitFormatter "Subaki.png"
+setMugEntry(0x10, MPegMug, 2, 5, 3, 3)
+
+ALIGN 4
+MPegMug:
+#incext PortraitFormatter "Subaki.png"
+setMugEntry(0x10, MPegMug, 2, 5, 3, 3)
+
+ALIGN 4
+GenevieveMug:
+#incext PortraitFormatter "Genevieve.png"
+setMugEntry(0xC, GenevieveMug, 3, 6, 3, 4)
+
+ALIGN 4
+Ch4BossMug:
+#incext PortraitFormatter "Ch4Boss.png"
+setMugEntry(0x30, Ch4BossMug, 2, 4, 2, 2)
+
+ALIGN 4
+TaekoMug:
+#incext PortraitFormatter "Taeko.png"
+setMugEntry(0x1B, TaekoMug, 2, 6, 3, 4)
+
+ALIGN 4
+SabMug:
+#incext PortraitFormatter "Sab.png"
+setMugEntry(0x1A, SabMug, 2, 6, 3, 4)
+
+ALIGN 4
+ParkerMug:
+#incext PortraitFormatter "Parker.png"
+setMugEntry(0x06, ParkerMug, 3, 5, 3, 3)
+
+ALIGN 4
+PetersonMug:
+#incext PortraitFormatter "Peterson.png"
+setMugEntry(0x1C, PetersonMug, 3, 6, 3, 4)
+	

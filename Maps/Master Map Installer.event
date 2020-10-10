@@ -16,6 +16,15 @@
 #include "Ch4.event"
 }
 {
+#include "Ch5.event"
+}
+{
+#include "Ch6A.event"
+}
+{
+#include "Ch6B.event"
+}
+{
 #include "Chapter1.event"
 }
 {

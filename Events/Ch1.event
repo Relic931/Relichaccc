@@ -15,9 +15,24 @@ POIN BeginningScene EndingScene
 TurnBasedEvents:
 TurnEventPlayer(0x1B,TurnEvent1,2)
 TurnEventPlayer(0x21, TurnEvent2, 4)
-TurnEventPlayer(0x25, TurnEvent3, 3)
+TurnEventPlayer(0x25, TurnEvent3, 4)
 TurnEventPlayer(0x24, TurnEvent4, 7)
 END_MAIN
+
+#define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
+
+// Prep screen shop (copied from runa)
+
+PUSH
+  ORG 0x99E64
+    POIN PrepScreenShop
+POP
+
+ALIGN 4
+PrepScreenShop:
+//SHLI IronSword IronLance IronAxe IronBow Fire Heal
+SHLI SlimSword SlimLance PoisonAxe IronBow Fire Heal
+ALIGN 4
 
 TurnEvent1:
 LoadReinforcements(Turn2Bandits)
@@ -41,7 +56,7 @@ ENDA
 
 Turn2Bandits:
 	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [5,0] 0 0 1 REDA6R3[IronAxe] AttackingBrigandAI
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [6,0] 0 0 1 REDA4R6[IronAxe] AttackingBrigandAI
+	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [6,0] 0 0 0 0 [IronAxe] AttackingBrigandAI
 	UNIT
 
 Turn3Bandit:
@@ -129,17 +144,17 @@ Units1:
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R6 [Rapier,Vulnerary] NoAI
 	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R8 [Vulnerary] NoAI
 	UNIT Seth Soldier 0x0 Level(7,Ally,0) [15,10] 0 0 1 REDA11R7 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
-	UNIT Gilliam Knight_F 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA13R7 [IronAxe,Vulnerary] NoAI
+	UNIT Gilliam Knight_F 0x0 Level(4,Ally,0) [15,10] 0 0 1 REDA13R7 [IronAxe,Vulnerary] NoAI
 	UNIT Franz Archer 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R7 [IronBow,Vulnerary] NoAI
 	UNIT
 
 EnemyUnits:
 
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [10,6] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [10,6] 0 0 0 0 [PoisonAxe] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [11,3] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [4,6] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [4,6] 0 0 0 0 [PoisonAxe] AttackInRangeAI
 	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [5,0] 0 0 0 0 [IronSword] AttackInRangeAI	
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [5,9] 0 0 0 0 [IronAxe] AttackInRangeAI	
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [5,9] 0 0 0 0 [PoisonAxe] AttackInRangeAI	
 	UNIT
 
 Traps1:
@@ -156,8 +171,8 @@ SetBackground(0x1)
 Text(0x0903)
 CALL $9EE2C4
 FADI 16
-REMOVEPORTRAITS
-SetBackground(0x1)
+REMOVEPORTRAITS	
+SetBackground(0x6)
 Text(0x0904)
 CALL $9EE2C4
 FADI 16
@@ -170,10 +185,11 @@ ENDA
 
 EndingScene:
 REMOVEPORTRAITS
-SetBackground(0x1)
+SetBackground(0x6)
 Text(0x0918)
 CALL $9EE2C4
 FADI 16
+GiveGold(1000)
 MNC2 1
 NoFade
 ENDA

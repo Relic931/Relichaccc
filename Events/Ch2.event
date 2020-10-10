@@ -13,9 +13,10 @@ POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
 TurnBasedEvents:
-TurnEventPlayer(0x1B,TurnEvent1,2)
+TurnEventPlayer(0x1B,TurnEvent1,3)
 TurnEventPlayer(0x21, TurnEvent2, 3)
 TurnEventPlayer(0x24, TurnEvent3, 8)
+TurnEventPlayer(0x25, TurnEvent4, 5)
 END_MAIN
 
 TurnEvent1:
@@ -33,16 +34,23 @@ ASMC 0x00D391
 NoFade
 ENDA
 
+TurnEvent4:
+LoadReinforcements(Turn4Bandits)
+NoFade
+ENDA
 
 Turn2Bandits:
 	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [0,6] 0 0 0 0 [IronAxe] AttackingBrigandAI
 	UNIT
 
 Turn3Bandits:
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [3,14] 0 0 0 0 [IronAxe] AttackingBrigandAI
 	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [5,0] 0 0 0 0 [IronAxe] AttackingBrigandAI
 	UNIT
 
+Turn4Bandits:
+	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [3,14] 0 0 0 0 [IronAxe] AttackingBrigandAI
+	UNIT
+	
 ALIGN 32
 CharacterBasedEvents:
 END_MAIN
@@ -93,6 +101,7 @@ LocationBasedEvents:
 	Village(0xE,RightMidVillage,10,6)
 	Village(0xF,RightBottomVillage,13,10)	
 	Armory(C2Shop,14,1)
+	Village(0x1D,SecretPlace,14,13)
 END_MAIN
 
 C2Shop:
@@ -124,6 +133,14 @@ ENUT 0x22
 NoFade
 ENDA
 
+SecretPlace:
+REMOVEPORTRAITS
+SetBackground(0x9)
+Text(0x093C)
+CALL $9EE2C4
+FADI 16
+ENDA
+
 Dunno1:
 END_MAIN
 
@@ -148,23 +165,23 @@ Units1:
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,6] 0 0 1 REDA14R7 [Rapier,Vulnerary] NoAI	
 	UNIT
 Units2:
-	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R8 [Heal, Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R8 [Heal, EnergyRing, Vulnerary] NoAI
 	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R7 [SlimSword, Vulnerary] NoAI
-	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA13R8 [IronAxe, Vulnerary] NoAI
-	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [12,6] 0 0 1 REDA13R8 [IronBlade, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA13R8 [PoisonAxe, Vulnerary] NoAI
+	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [12,6] 0 0 1 REDA13R8 [IronBlade, SlimSword, Vulnerary] NoAI
 	UNIT
 
 EnemyUnits:
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,3] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,3] 0 0 0 0 [PoisonAxe] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [7,7] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,11] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [15,9] 0 0 0 0 [IronAxe] BrigandAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [6,13] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,11] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [15,9] 0 0 0 0 [IronAxe] AttackingBrigandAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [6,13] 0 0 0 0 [SlimSword] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [2,10] 0 0 0 0 [IronLance] AttackInRangeAI	
 	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [15,2] 0 0 0 0 [IronSword, MetissTome] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [2,3] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [13,13] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,11] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,11] 0 0 0 0 [PoisonAxe] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [0,9] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [0,14] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT
@@ -198,6 +215,11 @@ GotoPrepScreen
 ENDA
 
 EndingScene:
+REMOVEPORTRAITS
+SetBackground(0x18)
+Text(0x0908)
+CALL $9EE2C4
+FADI 16
 MNC2 2
 NoFade
 ENDA

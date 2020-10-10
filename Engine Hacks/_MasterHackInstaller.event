@@ -59,6 +59,13 @@ POP
 
 ////////////////////////////////FREE SPACE OUT OF BL RANGE
 
+PUSH
+ORG 0xB523C
+SHORT 0x00 0x00
+POP
+
+
+
   //HP Bars (and effective weapon warning)
   #include "QualityOfLife/HpBars/HpBars.event"
 
@@ -178,7 +185,28 @@ POP
   //Narrow Fonts by Scraiza
   ALIGN 4
   #include "ExternalHacks/NarrowFont/NarrowFontInstaller.event"
+  
+  ALIGN 4
+  #include "ThreeHouses Brave Effect/braveasminstall.event"
+  
+  ALIGN 4
+  #include "FixedAutoLevels.event"
 
+  ALIGN 4
+  #include "ModularMinimugBox-master/Installers/MMBInstallerBpat.event"
+  
+  ALIGN 4
+  #include "Fates EXP/Installer.event"
+  
+  ALIGN 4
+  #include "FillAIRangeMap Fix/FillAIDangerMap.event"
+  
+  ALIGN 4
+  #include "WTEditor.event"
+  
+  ALIGN 4
+  #include "ToggleDeploymentSwapping/ToggleDeploymentSwappingInstaller.event"
+  
   ALIGN 4
   #include "SkillSystem/SkillSystemInstaller.event"
 

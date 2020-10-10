@@ -1,0 +1,37 @@
+PUSH
+ORG 0x95dd64 //bg6 offset
+POIN bg06_image
+POIN bg06_tsa
+POIN bg06_palette
+POP
+
+ALIGN 4
+bg06_image:
+#incbin "SnowVillageImage.bin"
+
+ALIGN 4
+bg06_tsa:
+#incbin "SnowVillageTSA.bin"
+
+ALIGN 4
+bg06_palette:
+#incbin "SnowVillagePalette.bin"
+
+//PUSH
+//ORG 0x95DDC4 //bg6 offset
+//POIN bg06_image
+//POIN bg06_tsa
+//POIN bg06_palette
+//POP
+
+//ALIGN 4
+//bg0E_image:
+//#incbin "SnowFieldsImage.bin"
+
+//ALIGN 4
+//bg0E_tsa:
+//#incbin "SnowFieldsTSA.bin"
+
+//ALIGN 4
+//bg0E_palette:
+//#incbin "SnowFieldsPalette.bin"

@@ -2,32 +2,40 @@
     #include "EAstdlib.event"
     #include "Custom Definitions.event"
 
-    ORG FreeSpace
+    ORG EndSpace
 
     #include "repointedTextTable.event"
 
     //Text first for Text ID definitions
+	ALIGN 4
     #include "Text/Install Text Data.event"
     MESSAGE Used text space ends at currentOffset
 
     //CSV tables
+	ALIGN 4
     #include "Tables/Table Installer.event"
     MESSAGE Used table space ends at currentOffset
 
     //Engine Hacks
+	ALIGN 4
     #include "Engine Hacks/_MasterHackInstaller.event"
     MESSAGE Used hax space ends at currentOffset
 	
 	//Graphics
+	ALIGN 4
 	#include "Graphics/Graphics Installer.event"
+	ALIGN 4
 	#include "Graphics/MapSprites/MapSpritesInstaller.event"	
 
     //Events
+	ALIGN 4
 	#include "Events/Event Installer.event"
 
     //Maps
+	ALIGN 4
     #include "Maps/Master Map Installer.event"
 	
+	//Music
     
     MESSAGE Used free space ends at currentOffset
 #else

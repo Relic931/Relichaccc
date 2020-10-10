@@ -1,6 +1,55 @@
 	ALIGN 4
 	TransporterStanding:
-	#incbin "TransporterStanding.dmp"
+	#incext Png2Dmp "TransporterStanding.png" --lz77
+	ALIGN 4
+	AxeArmorStanding:
+	#incext Png2Dmp "AxeArmorStanding.png" --lz77
 	ALIGN 4
 	TransporterMoving:
-	#incbin "TransporterMoving.dmp"
+	#incext Png2Dmp "TransporterMoving.png" --lz77
+	ALIGN 4
+	AxeArmorMoving:
+	#incext Png2Dmp "AxeArmorMoving.png" --lz77
+	ALIGN 4
+	GriffRiderStanding:
+	#incext Png2Dmp "GriffRiderStanding.png" --lz77
+	ALIGN 4
+	GriffRiderMoving:
+	#incext Png2Dmp "GriffRiderMoving.png" --lz77
+	ALIGN 4
+	BKMoving:
+	#incext Png2Dmp "BKMoving.png" --lz77
+	ALIGN 4
+	BKStanding:
+	#incext Png2Dmp "BKStanding.png" --lz77
+	ALIGN 4
+	AxeSoldierStanding:
+	#incext Png2Dmp "AxeSoldierStanding.png" --lz77
+	ALIGN 4
+	AxeSoldierMoving:
+	#incext Png2Dmp "AxeSoldierMoving.png" --lz77
+	ALIGN 4
+	PegStanding:
+	#incext Png2Dmp "PegStanding.png" --lz77
+	ALIGN 4
+	PegMoving:
+	#incext Png2Dmp "PegMoving.png" --lz77
+	ALIGN 4
+	BowArmorStanding:
+	#incext Png2Dmp "BowArmorStanding.png" --lz77
+	ALIGN 4
+	BowArmorMoving:
+	#incext Png2Dmp "BowArmorMoving.png" --lz77
+	ALIGN 4
+	SoldierStanding:
+	#incext Png2Dmp "SoldierStanding.png" --lz77
+	ALIGN 4
+	SoldierMoving:
+	#incext Png2Dmp "SoldierMoving.png" --lz77
+	ALIGN 4
+	SLStanding:
+	#incext Png2Dmp "SLStanding.png" --lz77
+	ALIGN 4
+	SLMoving:
+	#incext Png2Dmp "SLMoving.png" --lz77
+	

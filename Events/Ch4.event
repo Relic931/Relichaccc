@@ -13,16 +13,44 @@ POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
 TurnBasedEvents:
-
+TurnEventPlayer(0x24, TurnEvent1, 6)
+TurnEventPlayer(0x25, TurnEvent2, 4)
 END_MAIN
 
+TurnEvent1:
+LoadReinforcements(Turn6Dudes)
+ENDA
+
+TurnEvent2:
+LoadReinforcements(Turn4Dudes)
+ENDA
+
+Turn4Dudes:
+	UNIT 0x80 Brigand 0x0 Level(1, Enemy, 1) [0, 2] 0 0 0 0 [IronAxe] AttackingBrigandAI
+	UNIT 0x80 Brigand 0x0 Level(1, Enemy, 1) [0, 18] 0 0 0 0 [IronAxe] AttackingBrigandAI
+	UNIT
+
+Turn6Dudes:
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [1,2] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [0,9] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,14] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [4,10] 0 0 0 0 [Longbow] DefaultAI
+	UNIT
 ALIGN 32
 CharacterBasedEvents:
 END_MAIN
 
 MiscBasedEvents:
 CauseGameOverIfLordDies
+AREA 0x15 Win [8, 1] [8, 1]
 END_MAIN
+
+Win:
+CHECK_INAREA 0x0F [8, 1] [8, 1]
+BEQ 1 1 0xC
+LABEL 1
+CALL EndingScene
+ENDA
 
 LocationBasedEvents:
 	Village(0xD,TopVillage,1,4)
@@ -30,11 +58,13 @@ LocationBasedEvents:
 END_MAIN
 
 TopVillage:
+VillageEventItem(0x910,0x1,Javelin)
 NoFade
 ENDA
 
 BottomVillage:
-NoFade
+VillageEventItem(0x910,0x1,Hammer)
+NoFade	
 ENDA
 
 Dunno1:
@@ -65,26 +95,26 @@ Units1:
 	UNIT
 	
 EnemyUnits:
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [7,12] 0 0 0 0 [IronAxe, HandAxe] NeverMoveAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [7,13] 0 0 0 0 [IronAxe, HandAxe] NeverMoveAI	
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [10,6] 0 0 0 0 [IronAxe, HandAxe] NeverMoveAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [10,7] 0 0 0 0 [IronAxe, HandAxe] NeverMoveAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [7,12] 0 0 0 0 [PoisonAxe, HandAxe] NeverMoveAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [7,13] 0 0 0 0 [PoisonAxe, HandAxe] NeverMoveAI	
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [10,6] 0 0 0 0 [PoisonAxe, HandAxe] NeverMoveAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [10,7] 0 0 0 0 [PoisonAxe, HandAxe] NeverMoveAI
 	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [11,8] 0 0 0 0 [IronBow] DefaultAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [12,13] 0 0 0 0 [IronLance] AttackInRangeAI	
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [14,8] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [14,8] 0 0 0 0 [SlimSword] DefaultAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [17,0] 0 0 0 0 [IronLance, RedGem] NeverMoveAI
 	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [8,10] 0 0 0 0 [IronBow] DefaultAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,3] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT ONeill Soldier 0x0 Level(1, Enemy, 1) [12, 0] 0 0 0 0 [SteelLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,3] 0 0 0 0 [PoisonAxe] DefaultAI
+	UNIT ONeill Soldier 0x0 Level(1, Enemy, 1) [8, 1] 0 0 0 0 [SteelLance] NeverMoveAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronLance] DefaultAI	
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [5,17] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,14] 0 0 0 0 [IronSword] DefaultAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,9] 0 0 0 0 [IronSword] DefaultAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [0,17] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [1,2] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,14] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,9] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [0,17] 0 0 0 0 [PoisonAxe] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [1,2] 0 0 0 0 [PoisonAxe] DefaultAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [1,6] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [11,3] 0 0 0 0 [IronBow] DefaultAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [2,15] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [2,15] 0 0 0 0 [SlimSword] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [4,8] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT
 	
@@ -98,6 +128,11 @@ ENDTRAP
 ALIGN 4
 
 BeginningScene:
+REMOVEPORTRAITS
+SetBackground(0x2)
+Text(0x0909)
+CALL $9EE2C4
+FADI 16
 LOAD2 0x1 Units1
 ENUN
 LOAD1 0x1 EnemyUnits
@@ -106,6 +141,11 @@ GotoPrepScreen
 ENDA
 
 EndingScene:
-MNC2 3
+REMOVEPORTRAITS
+SetBackground(0x2)
+Text(0x0911)
+CALL $9EE2C4
+FADI 16
+MNC2 4
 NoFade
 ENDA

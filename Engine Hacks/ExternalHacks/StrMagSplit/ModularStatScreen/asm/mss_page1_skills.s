@@ -106,32 +106,36 @@ b		ShowStats3
 
 NextColumn:
 
-draw_textID_at 21, 3, textID=0x4f7 @con
-draw_con_bar_with_getter_at 24, 3
+draw_textID_at 21, 3, 0x4f6 @move
+draw_move_bar_with_getter_at 24, 3
+
+draw_textID_at 21, 5, textID=0x4f7 @con
+draw_con_bar_with_getter_at 24, 5
 
 
-draw_textID_at 21, 5, textID=0x4f8 @aid
-draw_number_at 25, 5, 0x80189B8, 2 @aid getter
-draw_aid_icon_at 26, 5
+draw_textID_at 21, 7, textID=0x4f8 @aid
+draw_number_at 25, 7, 0x80189B8, 2 @aid getter
+draw_aid_icon_at 26, 7
 
-draw_status_text_at 21, 7
+draw_status_text_at 21, 9
 
-draw_textID_at 21, 9, textID=0x4f1 @affin
+draw_trv_text_at 21, 13
 
-draw_affinity_icon_at 24, 9
+draw_textID_at 21, 11, textID=0x4f1 @affin
+
+draw_affinity_icon_at 24, 11
 
 
 .set ss_talkloc, (SS_TalkText - . - 6)
   ldr r0, =ss_talkloc
   add r0, pc
   ldr r0, [r0]
-draw_talk_text_at 21, 11
+draw_talk_text_at 21, 15
 
 .set ss_skillloc, (SS_SkillsText - . - 6)
   ldr r0, =ss_skillloc
   add r0, pc
   ldr r0, [r0]
-draw_textID_at 23, 13, colour=White @skills
 mov r0, r8
 mov 	r1,#0x47
 ldrb	r0,[r0,r1]
@@ -154,51 +158,11 @@ draw_spd_bar_at 16, 9
 draw_luck_bar_at 16, 11
 draw_def_bar_at 16, 13
 draw_res_bar_at 16, 15
-draw_textID_at 13, 17, 0x4f6 @move
-draw_move_bar_with_getter_at 16, 17
 
 b		NextColumn
 .ltorg
 
 skipliterals:
-
-mov r0, r8
-ldr r1, SkillGetter
-mov lr, r1
-.short 0xf800 @skills now stored in the skills buffer
-
-mov r6, r0
-ldrb r0, [r6] 
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 21, 15
-
-ldrb r0, [r6,#1]
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 24, 15
-
-ldrb r0, [r6, #2]
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 27, 15
-
-ldrb r0, [r6, #3]
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 21, 17
-
-ldrb r0, [r6, #4]
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 24, 17
-
-ldrb r0, [r6, #5]
-cmp r0, #0
-beq SkillEnd
-draw_skill_icon_at 27, 17
-
-SkillEnd:
 
 @ draw_textID_at 13, 15, textID=0x4f6 @move
 @ draw_move_bar_at 16, 15

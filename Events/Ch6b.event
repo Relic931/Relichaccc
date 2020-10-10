@@ -1,0 +1,176 @@
+EventPointerTable(0x21, PointerList)
+
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+TurnBasedEvents:
+TurnEventPlayer(0x24, TurnEvent1, 12)
+TurnEventPlayer(0x25, TurnEvent2, 11)
+END_MAIN
+
+TurnEvent1:
+ASMC 0x00D391
+NoFade
+ENDA
+
+TurnEvent2:
+LoadReinforcements(Peterson)
+ENDA
+
+Peterson:
+	UNIT Tethys Mercenary 0x0 Level(1, Ally, 0) [19,0] 0 0 0 0 [SlimSword] NoAI
+	UNIT
+
+ALIGN 32
+CharacterBasedEvents:
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+DefeatAll(EndingScene)
+END_MAIN
+
+LocationBasedEvents:
+	Village(0xD,TRVillage,16,1)
+	Village(0xC,MVillage,13,7)
+	Village(0xF,BRVillage,17,13)	
+	Village(0x10,BLVillage,3,17)
+END_MAIN
+
+TRVillage:
+VillageEventItem(0x910,0x1,Longbow)
+NoFade
+ENDA
+
+MVillage:
+VillageEventItem(0x910,0x1,Swordreaver)
+NoFade	
+ENDA
+
+BRVillage:
+VillageEventItem(0x910,0x1,PureWater)
+NoFade	
+ENDA
+
+BLVillage:
+VillageEventItem(0x910,0x1,GoddessIcon)
+NoFade	
+ENDA
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Units1:
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [19,19] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [19,17] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Seth Soldier 0x0 Level(7,Ally,0) [17,17] 0 0 0 0 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
+	UNIT Gilliam Knight_F 0x0 Level(1,Ally,0) [18,16] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Franz Archer 0x0 Level(1,Ally,0) [17,19] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [16,18] 0 0 0 0 [Heal, Vulnerary] NoAI
+	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [17,15] 0 0 0 0 [SlimSword, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [15,15] 0 0 0 0 [IronAxe, Vulnerary] NoAI
+	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [16,16] 0 0 0 0 [IronBlade, Vulnerary] NoAI	
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [15,17] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [15,19] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [19,15] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [18,18] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [14,16] 0 0 0 0 [Rapier,Vulnerary] NoAI	
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [19,14] 0 0 0 0 [Rapier,Vulnerary] NoAI		
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [13,17] 0 0 0 0 [Rapier,Vulnerary] NoAI	
+	UNIT
+	
+	Units2:
+	UNIT Natasha Fighter 0x0 Level(2,Ally,0) [16,14] 0 0 0 0 [IronAxe,Vulnerary] NoAI
+	UNIT Cormag Fighter 0x0 Level(3,Ally,0) [16,14] 0 0 0 0 [SteelAxe,Vulnerary] NoAI
+	UNIT Kyle Fighter 0x0 Level(2,NPC,0) [19,18] 0 0 0 0 [PoisonAxe,Vulnerary] DefaultAI
+	UNIT Forde Fighter 0x0 Level(3,NPC,0) [18,19] 0 0 0 0 [IronAxe,Vulnerary] DefaultAI
+	UNIT Amelia Cleric 0x0 Level(1,Ally,0) [16,14] 0 0 0 0 [Mend,Vulnerary] NoAI
+	UNIT Artur Wight_Bow 0x0 Level(2,Ally,0) [16,14] 0 0 0 0 [SilverBow,IronBow,Vulnerary] NoAI
+	UNIT	
+	
+EnemyUnits:
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [14,13] 0 0 0 0 [SlimLance] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [12,14] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [17,11] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [19,10] 0 0 0 0 [IronBow] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [11,11] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [11,16] 0 0 0 0 [PoisonAxe] AttackInRangeAI	
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [8,12] 0 0 0 0 [SlimSword] DefaultAI	
+	UNIT 0x80 Knight 0x0 Level(2,Enemy,1) [8,18] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [3,18] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [10,9] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [3,14] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [14,8] 0 0 0 0 [IronBow] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [11,6] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [6,15] 0 0 0 0 [IronBow] DefaultAI
+	UNIT 0x80 Mage 0x0 Level(1,Enemy,1) [10,7] 0 0 0 0 [Fire] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [8,15] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [3,10] 0 0 0 0 [IronSword] AttackInRangeAI	
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [4,19] 0 0 0 0 [PoisonAxe] DefaultAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [19,5] 0 0 0 0 [IronBow] ChaseOnceApproachedAI
+	UNIT 0x80 Mage 0x0 Level(1,Enemy,1) [16,2] 0 0 0 0 [Fire] NeverMoveAI	
+	UNIT 0x80 Knight 0x0 Level(2,Enemy,1) [13,3] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [0,12] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Shaman 0x0 Level(1,Enemy,1) [2,5] 0 0 0 0 [Flux] NeverMoveAI
+	UNIT 0x80 Shaman 0x0 Level(1,Enemy,1) [1,5] 0 0 0 0 [Flux] NeverMoveAI
+	UNIT 0x80 Knight_F 0x0 Level(1,Enemy,1) [8,4] 0 0 0 0 [HandAxe] NeverMoveAI
+	UNIT 0x80 Knight_F 0x0 Level(1,Enemy,1) [8,3] 0 0 0 0 [HandAxe] NeverMoveAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [4,6] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [1,8] 0 0 0 0 [IronAxe] ChaseOnceApproachedAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [16,5] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [10,3] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [1,17] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [5,9] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Mage 0x0 Level(1,Enemy,1) [7,1] 0 0 0 0 [Fire] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [18,2] 0 0 0 0 [IronAxe] ChaseOnceApproachedAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [5,3] 0 0 0 0 [IronSword] ChaseOnceApproachedAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [9,0] 0 0 0 0 [IronBow] ChaseOnceApproachedAI
+	UNIT Breguet Fighter 0x0 Level(1, Enemy, 1) [3, 1] 0 0 0 0 [SteelAxe, HandAxe] NeverMoveAI
+	UNIT
+	
+
+Traps1:
+ENDTRAP
+ALIGN 4
+
+Traps2:
+ENDTRAP
+ALIGN 4
+
+BeginningScene:
+LOAD2 0x1 Units1
+ENUN
+LOAD1 0x1 Units2
+ENUN
+LOAD1 0x1 EnemyUnits
+ENUN
+GotoPrepScreen
+ENDA
+
+EndingScene:
+REMOVEPORTRAITS
+SetBackground(0x2)
+Text(0x0911)
+CALL $9EE2C4
+FADI 16
+MNC2 4
+NoFade
+ENDA

@@ -1,0 +1,218 @@
+EventPointerTable(0x17, PointerList)
+
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+#define EventMenuCommand(aTextId,Effect) "WORD 0; SHORT aTextId 0; WORD 0; POIN (0x04F448|1); WORD 0; POIN (Effect|1); WORD 0 0 0"
+#define EventMenuCommandEnd "WORD 0 0 0 0 0 0 0 0 0"
+
+Set00Command:
+#incbin "Set 0x00 Command.dmp"
+
+Set01Command:
+#incbin "Set 0x01 Command.dmp"
+
+CallSplitMenu:
+SHORT 0xB510 0x1C04 0x4B10 0x469E 0xF800 0x4A10 0x7850 0x2101 0x4308 0x2102 0x4308 0x2104 0x4308 0x2108 0x4308 0x2110 0x4308 0x7050 0x2000 0x4B0A 0x469E 0xF800 0x4B09 0x469E 0xF800 0x4B09 0x469E 0xF800 0x4809 0x1C21 0x4B07 0x469E 0xF800 0xBC10 0xBC01 0x4700 0xE884 0x0804 0x3080 0x0300 0x3D38 0x0800 0x43A8 0x0800 0xEB68 0x0804 0xEBC8 0x0804
+POIN SplitMenuGeometry
+
+SplitMenuGeometry:
+BYTE 6 6 18 0           // Geomerty, order: X, Y, Width, Height (Height doesn't matter)
+WORD 1                  // idk
+POIN SplitMenuCommands  // Command Definitions
+WORD 0 0 0 0 0 0        // No routines to handle B press/R press/construction/etc
+
+SplitMenuCommands:      
+EventMenuCommand(0xC16,Set00Command)
+EventMenuCommand(0xC15,Set01Command)
+EventMenuCommandEnd
+
+TurnBasedEvents:
+TurnEventPlayer(0x24, TurnEvent1, 2)
+TurnEventPlayer(0x26, TurnEvent2, 7)
+TurnEventPlayer(0x23, TurnEvent3, 8)
+TurnEventPlayer(0x23, TurnEvent1, 11)
+TurnEventPlayer(0x27, TurnEvent4, 1)
+END_MAIN
+
+TurnEvent1:
+LoadReinforcements(Turn2Dudes)
+ENDA
+
+TurnEvent2:
+LoadReinforcements(Turn4Dudes)
+ENDA
+
+TurnEvent3:
+LoadReinforcements(Turn2Dudes)
+ENDA
+
+TurnEvent4:
+SVAL 0xB 0xFFFFFFFF
+TUTORIALTEXTBOXSTART
+TEXTSHOW 0x091B
+TEXTEND
+REMA
+CALL $9EE2C4
+FADI 16
+ENDA
+
+Turn2Dudes:
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [0, 8] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [0, 12] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [0, 15] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 5] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [19, 8] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT
+	
+Turn4Dudes:
+	UNIT 0x80 Mercenary 0x0 Level(6, Enemy, 1) [19, 23] 0 0 0 0 [SteelSword] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(6, Enemy, 1) [19, 20] 0 0 0 0 [SteelSword] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(6, Enemy, 1) [19, 22] 0 0 0 0 [SteelAxe] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(6, Enemy, 1) [19, 21] 0 0 0 0 [SteelAxe] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(6, Enemy, 1) [18, 22] 0 0 0 0 [SteelLance] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(6, Enemy, 1) [18, 21] 0 0 0 0 [SteelLance] DefaultAI
+	UNIT
+
+ALIGN 32
+CharacterBasedEvents:
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+AREA 0x15 Win [1, 0] [2, 0]
+END_MAIN
+
+Win:
+CHECK_INAREA 0x0F [1, 0] [2, 0]
+BEQ 1 1 0xC
+LABEL 1
+CALL EndingScene
+ENDA
+
+
+LocationBasedEvents:
+	Village(0xD,TopVillage,12,4)
+	Village(0xC,LeftVillage,4,11)
+	Village(0xE,RightVillage,13,13)	
+	Door(1,1)
+	Door(2,1)
+END_MAIN
+
+TopVillage:
+VillageEventItem(0x910,0x1,Javelin)
+NoFade
+ENDA
+
+LeftVillage:
+VillageEventItem(0x910,0x1,Armorslayer)
+NoFade	
+ENDA
+
+RightVillage:
+VillageEventItem(0x910,0x1,IronAxe)
+NoFade	
+ENDA
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Units1:
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [1,23] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [0,22] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Seth Soldier 0x0 Level(7,Ally,0) [2,22] 0 0 0 0 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
+	UNIT Gilliam Knight_F 0x0 Level(1,Ally,0) [4,23] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Franz Archer 0x0 Level(1,Ally,0) [2,23] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [1,22] 0 0 0 0 [Heal, Vulnerary] NoAI
+	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [0,23] 0 0 0 0 [SlimSword, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [3,22] 0 0 0 0 [IronAxe, Vulnerary] NoAI
+	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [3,23] 0 0 0 0 [IronBlade, Vulnerary] NoAI	
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [0,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [1,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [4,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [5,22] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT
+	
+Units2:
+	UNIT Lute PegasusKnight 0x0 Level(1,Ally,0) [5,22] 0 0 0 0 [SlimSword,Vulnerary] NoAI
+	UNIT	
+	
+EnemyUnits:
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,16] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,15] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,16] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,17] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,18] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,5] 0 0 0 0 [IronLance, Javelin] NeverMoveAI	
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,6] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [1,2] 0x02 0 0 0 [IronLance, Javelin, DoorKey] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [2,2] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [16,10] 0 0 0 0 [SlimSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,6] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [7,3] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [7,5] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [3,5] 0 0 0 0 [SlimSword] AttackInRangeAI	
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [1,18] 0 0 0 0 [SlimSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,14] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [8,16] 0 0 0 0 [SlimSword] AttackInRangeAI
+	UNIT
+	
+
+Traps1:
+ENDTRAP
+ALIGN 4
+
+Traps2:
+ENDTRAP
+ALIGN 4
+
+BeginningScene:
+REMOVEPORTRAITS
+SetBackground(0x2)
+Text(0x0912)
+CALL $9EE2C4
+FADI 16
+LOAD2 0x1 Units1
+ENUN
+LOAD1 0x1 Units2
+ENUN
+LOAD1 0x1 EnemyUnits
+ENUN
+GotoPrepScreen
+ENDA
+
+EndingScene:
+ASMC CallSplitMenu|1
+BNE 0xA 0xC 0x0
+    Text(0x917)//Text if helping Danaan
+	REMU 0x1
+	MNC2 5
+GOTO 0xB
+LABEL 0xA
+    Text(0x918)//Text if joining Bandits
+    REMU 0xF
+	MNC2 6
+LABEL 0xB
+ENDA
