@@ -7,7 +7,6 @@ ALIGN 4
 
 EirikaLordSkillList:
 
-BYTE 01 SupplyID
 
 BYTE 00 00
 ALIGN 4

@@ -1,0 +1,20 @@
+#include "Extensions/Hack Installation.txt"
+
+PUSH
+ORG $2ACB6
+BYTE 0x00 0x00
+jumpToHack(HackLocation)
+POP
+
+HackLocation:
+#incbin "MultiProhibitsCritByItem.dmp"
+
+POIN MultiProhibitsCritByItemTable
+
+MultiProhibitsCritByItemTable:
+BYTE 0x02   //BronzeSword
+BYTE 0x15   //BronzeLance
+BYTE 0x22   //BronzeAxe
+BYTE 0x27   //ImbuedAxe
+BYTE 0x33   //ImbuedBow
+BYTE 0x00   //term data

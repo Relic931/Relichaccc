@@ -58,7 +58,7 @@ bne unpromotedAttacker
 and r2, r1              @Promoted
 cmp r2, #0x0
 beq unpromotedAttacker
-add r6, #0x14           @0x14 levels for promoted.
+add r6, #15           @0x14 levels for promoted.
 unpromotedAttacker:
 
 @Now the defender

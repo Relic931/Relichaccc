@@ -8,35 +8,35 @@ Map:
 #incbin "Chapter1_data.dmp"
 
 MapChanges:
-TileMap(0,0,0,3,2,DestroyTopLeft)
-TileMap(1,12,0,3,2,DestroyTopRight)
-TileMap(2,0,4,3,2,DestroyBotLeft)
-TileMap(3,1,1,1,1,VisitTopLeft)
-TileMap(4,13,1,1,1,VisitTopRight)
-TileMap(5,1,5,1,1,VisitBotLeft)
+TileMap(5,0,12,3,2,BLD)
+TileMap(4,1,13,1,1,BLV)
+TileMap(3,9,0,3,2,TMD)
+TileMap(2,10,1,1,1,TMV)
+TileMap(1,0,1,3,2,TLD)
+TileMap(0,1,2,1,1,TLV)
 TileMapEnd
 
-DestroyTopLeft:
+BLD:
 SHORT 0xb90 0xb94 0xb98 0xc10 0xc14 0xc18 
 ALIGN 4
 
-DestroyTopRight:
-SHORT 0xb90 0xb94 0xb98 0xc10 0xc14 0xc18 
-ALIGN 4
-
-DestroyBotLeft:
-SHORT 0xb90 0xb94 0xb98 0xc10 0xc14 0xc18 
-ALIGN 4
-
-VisitTopLeft:
+BLV:
 SHORT 0x80 
 ALIGN 4
 
-VisitTopRight:
+TMD:
+SHORT 0xb90 0xb94 0xb98 0xc10 0xc14 0xc18 
+ALIGN 4
+
+TMV:
 SHORT 0x80 
 ALIGN 4
 
-VisitBotLeft:
+TLD:
+SHORT 0xb90 0xb94 0xb98 0xc10 0xc14 0xc18 
+ALIGN 4
+
+TLV:
 SHORT 0x80 
 ALIGN 4
 

@@ -21,11 +21,6 @@ MPegMug:
 setMugEntry(0x10, MPegMug, 2, 5, 3, 3)
 
 ALIGN 4
-MPegMug:
-#incext PortraitFormatter "Subaki.png"
-setMugEntry(0x10, MPegMug, 2, 5, 3, 3)
-
-ALIGN 4
 GenevieveMug:
 #incext PortraitFormatter "Genevieve.png"
 setMugEntry(0xC, GenevieveMug, 3, 6, 3, 4)
@@ -54,4 +49,39 @@ ALIGN 4
 PetersonMug:
 #incext PortraitFormatter "Peterson.png"
 setMugEntry(0x1C, PetersonMug, 3, 6, 3, 4)
+
+ALIGN 4
+NicholasMug:
+#incext PortraitFormatter "Nicholas.png"
+setMugEntry(0x0F, NicholasMug, 3, 5, 3, 4)
+
+ALIGN 4
+EllaMug:
+#incext PortraitFormatter "Ella.png"
+setMugEntry(0x20, EllaMug, 4, 6, 4, 4)
+
+ALIGN 4
+AnlyMug:
+#incext PortraitFormatter "Anly.png"
+setMugEntry(0x1E, AnlyMug, 3, 5, 3, 3)
+
+ALIGN 4
+HancockMug:
+#incext PortraitFormatter "Hancock.png"
+setMugEntry(0x9, HancockMug, 3, 5, 3, 3)
+
+ALIGN 4
+RickMug:
+#incext PortraitFormatter "Rick.png"
+setMugEntry(0x0A, RickMug, 3, 5, 3, 3)
+
+ALIGN 4
+BreckerMug:
+#incext PortraitFormatter "Brecker.png"
+setMugEntry(0x04, BreckerMug, 3, 6, 3, 4)
+
+ALIGN 4
+OscarMug:
+#incext PortraitFormatter "Oscar.png"
+setMugEntry(0x02, OscarMug, 3, 6, 3, 4)
 	

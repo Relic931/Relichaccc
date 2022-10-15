@@ -23,6 +23,7 @@ beq		NormalGrowths
 
 @Fixed growths mode
 mov		r0,#0x0
+add        	r4,#50
 FixedLoop:
 cmp		r4,#100
 blt		GoBack

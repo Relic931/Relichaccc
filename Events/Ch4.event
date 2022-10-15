@@ -107,10 +107,10 @@ EnemyUnits:
 	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,3] 0 0 0 0 [PoisonAxe] DefaultAI
 	UNIT ONeill Soldier 0x0 Level(1, Enemy, 1) [8, 1] 0 0 0 0 [SteelLance] NeverMoveAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronLance] DefaultAI	
-	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [5,17] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,14] 0 0 0 0 [SlimSword] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [17,2] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [16,1] 0 0 0 0 [SlimSword] DefaultAI
 	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [0,9] 0 0 0 0 [SlimSword] DefaultAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [0,17] 0 0 0 0 [PoisonAxe] DefaultAI
+	UNIT 0x80 Mage 0x0 Level(1,Enemy,1) [0,17] 0 0 0 0 [Fire] AttackInRangeAI
 	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [1,2] 0 0 0 0 [PoisonAxe] DefaultAI
 	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [1,6] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [11,3] 0 0 0 0 [IronBow] DefaultAI

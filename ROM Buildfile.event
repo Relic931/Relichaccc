@@ -36,7 +36,9 @@
     #include "Maps/Master Map Installer.event"
 	
 	//Music
-    
+    ALIGN 4
+	#include "Music/Music Installer.event"
+	
     MESSAGE Used free space ends at currentOffset
 #else
     ERROR You are not assembling FE8 events!

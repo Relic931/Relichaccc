@@ -8,7 +8,7 @@
 0802C45C D001     beq     #0x802C462
 0802C45E 2000     mov     r0,#0x0       @No bonus
 0802C460 E043     b       #0x802C4EA    @b end
-0802C462 2614     mov     r6,#0x14      @r6 = 20d (assuming is promoted level bonus?)
+0802C462 2614     mov     r6,#0xF      @r6 = 20d (assuming is promoted level bonus?)
 0802C464 4809     ldr     r0,=#0x202BCB0@???
 0802C466 7901     ldrb    r1,[r0,#0x4]  @Flags?
 0802C468 2040     mov     r0,#0x40

@@ -36,6 +36,58 @@ ALIGN 4
 {
 #include "ArmorsUnarmed Installer.event"
 }
+ALIGN 4
+{
+#include "AxeArmorAxe Installer.event"
+}
+ALIGN 4
+{
+#include "AxeArmorHandAxe Installer.event"
+}
+ALIGN 4
+{
+#include "AxeSoldierAxe Installer.event"
+}
+ALIGN 4
+{
+#include "AxeSoldierHandAxe Installer.event"
+}
+ALIGN 4
+{
+#include "AxeSoldierUnarmed Installer.event"
+}
+ALIGN 4
+{
+#include "MercSword Installer.event"
+}
+ALIGN 4
+{
+#include "MercUnarmed Installer.event"
+}
+ALIGN 4
+{
+#include "BowKnightBow Installer.event"
+}
+ALIGN 4
+{
+#include "BowKnightUnarmed Installer.event"
+}
+ALIGN 4
+{
+#include "PegSword Installer.event"
+}
+ALIGN 4
+{
+#include "PegUnarmed Installer.event"
+}
+ALIGN 4
+{
+#include "SamuraiSword Installer.event"
+}
+ALIGN 4
+{
+#include "SamuraiUnarmed Installer.event"
+}
 
 ALIGN 4
 MSoldierAnim:
@@ -49,4 +101,38 @@ BowAnim(0xAA)
 UnarmedAnim(0xAB)
 WORD 0x0
 
+ALIGN 4
+AxeArmorAnim:
+AxeAnim(0x42)
+HandAxeAnim(0x43)	
+UnarmedAnim(0xAB)
+WORD 0x0
 
+ALIGN 4
+AxeSoldierAnim:
+AxeAnim(0x92)
+HandAxeAnim(0x93)
+UnarmedAnim(0x94)
+WORD 0x0
+
+ALIGN 4
+MercAnim:
+SwordAnim(0x0B)
+UnarmedAnim(0x0C)
+WORD 0x0
+
+ALIGN 4
+BowKnightAnim:
+BowAnim(0xA5)
+UnarmedAnim(0xA6)
+WORD 0x0
+
+PegAnim:
+SwordAnim(0x66)
+UnarmedAnim(0x67)
+WORD 0x0
+
+SamuraiAnim:
+SwordAnim(0x13)
+UnarmedAnim(0x14)
+WORD 0x0

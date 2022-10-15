@@ -22,6 +22,15 @@
 	EventPointerTable(0x0F, VillagePalette)
 	EventPointerTable(0x10, VillageMapConfig)
 	EventPointerTable(0x0E, VillageImage)
+	WesternIslesImage:
+	#incbin "MapStuff/WesternIslesTileset.dmp"
+	WesternIslesPalette:
+	#incbin "MapStuff/WesternIslesObSetPalette_pal.dmp"
+	WesternIslesMapConfig:
+	#incext compress "MapStuff/WesternIslesConfig.mapchip_config"
+	EventPointerTable(0x88, WesternIslesImage)
+	EventPointerTable(0x89, WesternIslesPalette)
+	EventPointerTable(0x8A, WesternIslesMapConfig)
 	ALIGN 4
 	#include "MapSprites/MapSpritesInstaller.event"
 	ALIGN 4

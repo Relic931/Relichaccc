@@ -12,6 +12,7 @@ POIN $0 $0 $0
 POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
+#define GiveItem(Item,Character) "CALL $591F40; SMOV 0x3 Item ; GIVEITEMTO Character"	
 #define EventMenuCommand(aTextId,Effect) "WORD 0; SHORT aTextId 0; WORD 0; POIN (0x04F448|1); WORD 0; POIN (Effect|1); WORD 0 0 0"
 #define EventMenuCommandEnd "WORD 0 0 0 0 0 0 0 0 0"
 
@@ -37,23 +38,26 @@ EventMenuCommand(0xC15,Set01Command)
 EventMenuCommandEnd
 
 TurnBasedEvents:
-TurnEventPlayer(0x24, TurnEvent1, 2)
+TurnEventPlayer(0x24, TurnEvent1, 3)
 TurnEventPlayer(0x26, TurnEvent2, 7)
-TurnEventPlayer(0x23, TurnEvent3, 8)
-TurnEventPlayer(0x23, TurnEvent1, 11)
+TurnEventPlayer(0x23, TurnEvent3, 9)
+TurnEventPlayer(0x23, TurnEvent1, 12)
 TurnEventPlayer(0x27, TurnEvent4, 1)
 END_MAIN
 
 TurnEvent1:
 LoadReinforcements(Turn2Dudes)
+NoFade
 ENDA
 
 TurnEvent2:
 LoadReinforcements(Turn4Dudes)
+NoFade
 ENDA
 
 TurnEvent3:
 LoadReinforcements(Turn2Dudes)
+NoFade
 ENDA
 
 TurnEvent4:
@@ -67,14 +71,10 @@ FADI 16
 ENDA
 
 Turn2Dudes:
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [0, 8] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [0, 12] 0 0 0 0 [IronSword] DefaultAI
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [0, 15] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 5] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [19, 8] 0 0 0 0 [IronSword] DefaultAI
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [19, 12] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [5, 0] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [8, 0] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 PegasusKnight 0x0 Level(1,Enemy,1) [11, 0] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Gargoyle 0x0 Level(1,Enemy,1) [14, 0] 0 0 0 0 [IronAxe] DefaultAI
 	UNIT
 	
 Turn4Dudes:
@@ -92,16 +92,15 @@ END_MAIN
 
 MiscBasedEvents:
 CauseGameOverIfLordDies
-AREA 0x15 Win [1, 0] [2, 0]
+AREA 0x15 Win [0, 0] [1, 20]
 END_MAIN
 
 Win:
-CHECK_INAREA 0x0F [1, 0] [2, 0]
+CHECK_INAREA 0x0F [0, 0] [1, 20]
 BEQ 1 1 0xC
 LABEL 1
 CALL EndingScene
 ENDA
-
 
 LocationBasedEvents:
 	Village(0xD,TopVillage,12,4)
@@ -150,8 +149,8 @@ Units1:
 	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [3,23] 0 0 0 0 [IronBlade, Vulnerary] NoAI	
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [0,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [1,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
-	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [4,21] 0 0 0 0 [Rapier,Vulnerary] NoAI
-	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [5,22] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [1,20] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [0,20] 0 0 0 0 [Rapier,Vulnerary] NoAI
 	UNIT
 	
 Units2:
@@ -159,24 +158,28 @@ Units2:
 	UNIT	
 	
 EnemyUnits:
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,16] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,15] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,16] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,17] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [5,18] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,5] 0 0 0 0 [IronLance, Javelin] NeverMoveAI	
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [11,6] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
 	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [1,2] 0x02 0 0 0 [IronLance, Javelin, DoorKey] NeverMoveAI
 	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [2,2] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
 	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [16,10] 0 0 0 0 [SlimSword] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,6] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [14,8] 0 0 0 0 [IronAxe] AttackInRangeAI
 	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [7,3] 0 0 0 0 [IronBow] AttackInRangeAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [7,4] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Knight 0x0 Level(1,Enemy,1) [7,5] 0 0 0 0 [IronLance, Javelin] NeverMoveAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [3,5] 0 0 0 0 [SlimSword] AttackInRangeAI	
+	UNIT 0x80 Mage 0x0 Level(1,Enemy,1) [1,4] 0 0 0 0 [Fire] AttackInRangeAI	
 	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [1,18] 0 0 0 0 [SlimSword] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,14] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [8,16] 0 0 0 0 [SlimSword] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [16,15] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [7,15] 0 0 0 0 [IronAxe] ChaseOnceApproachedAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [19, 22] 0 0 0 0 [SlimSword] ChaseOnceApproachedAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [19, 21] 0 0 0 0 [SlimSword] ChaseOnceApproachedAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [2,16] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [4,17] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(2,Enemy,1) [7,17] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [4,9] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [11, 19] 0 0 0 0 [SlimSword] AttackInRangeAI	
+	UNIT 0x80 Fighter 0x0 Level(2,Enemy,1) [12,19] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [10,15] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [14, 14] 0 0 0 0 [SlimSword] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [13,11] 0 0 0 0 [IronLance] ChaseOnceApproachedAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [9,4] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [10,6] 0 0 0 0 [IronLance] ChaseOnceApproachedAI
 	UNIT
 	
 

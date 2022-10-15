@@ -13,10 +13,6 @@ POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
 TurnBasedEvents:
-TurnEventPlayer(0x1B,TurnEvent1,2)
-TurnEventPlayer(0x21, TurnEvent2, 4)
-TurnEventPlayer(0x25, TurnEvent3, 4)
-TurnEventPlayer(0x24, TurnEvent4, 7)
 END_MAIN
 
 #define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
@@ -34,50 +30,24 @@ PrepScreenShop:
 SHLI SlimSword SlimLance PoisonAxe IronBow Fire Heal
 ALIGN 4
 
-TurnEvent1:
-LoadReinforcements(Turn2Bandits)
-NoFade
-ENDA
-
-TurnEvent2:
-LoadReinforcements(Turn4Bandits)
-NoFade
-ENDA
-
-TurnEvent3:
-LoadReinforcements(Turn3Bandit)
-NoFade
-ENDA
-
-TurnEvent4:
-ASMC 0x00D391
-NoFade
-ENDA
-
-Turn2Bandits:
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [5,0] 0 0 1 REDA6R3[IronAxe] AttackingBrigandAI
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [6,0] 0 0 0 0 [IronAxe] AttackingBrigandAI
-	UNIT
-
-Turn3Bandit:
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [14,9] 0 0 0 0 [SteelSword] DefaultAI
-	UNIT
-Turn4Bandits:
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [4,0] 0 0 0 0 [IronAxe] AttackingBrigandAI
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [0,9] 0 0 0 0 [IronAxe] AttackingBrigandAI
-	UNIT 0x80 Brigand 0x0 Level(1,Enemy,1) [8,0] 0 0 0 0 [IronAxe] AttackingBrigandAI
-	UNIT
-
 ALIGN 32
 CharacterBasedEvents:
+CharacterEventBothWays(0x25, CavTalk, 0x1, 0x9)
+CharacterEventBothWays(0x25, CavTalk, 0x1, 0xB)
+CharacterEventBothWays(0x25, CavTalk, 0x1, 0xB)
 END_MAIN
+
+CavTalk:
+CUSA Colm
+CUSA Innes
+ENDA
 
 MiscBasedEvents:
 CauseGameOverIfLordDies
 DefeatAll(EndingScene)
-AREA 0x1C DeadVillage [1, 1] [1, 1]
-AREA 0x1C DeadVillage [13, 1] [13, 1]
-AREA 0x1C DeadVillage [1, 5] [1, 5]
+AREA 0x1C DeadVillage [1, 2] [1, 2]
+AREA 0x1C DeadVillage [1, 14] [1, 14]
+AREA 0x1C DeadVillage [10, 1] [10, 1]
 AFEV 0x23 WinChap 0x22
 END_MAIN
 
@@ -89,7 +59,6 @@ BEQ 2 0x0 0xC
 CHECK_EVENTID 0xD
 BEQ 2 0x0 0xC
 CHECK_EVENTID 0xB
-BEQ 2 0x0 0xC
 CALL EndingScene
 LABEL 2
 ENDA
@@ -108,9 +77,9 @@ NoFade
 ENDA
 
 LocationBasedEvents:
-	Village(0xB,LeftTopVillage,1,1)
-	Village(0xC,LeftBottomVillage,1,5)
-	Village(0xD,RightVillage,13,1)	
+	Village(0xB,LeftTopVillage,1,2)
+	Village(0xC,LeftBottomVillage,1,14)
+	Village(0xD,RightTopVillage,10,1)		
 END_MAIN
 
 LeftTopVillage:
@@ -123,7 +92,7 @@ ENUT 0x22
 NoFade
 ENDA
 
-RightVillage:
+RightTopVillage:
 ENUT 0x22
 NoFade
 ENDA
@@ -141,20 +110,41 @@ Tutorial:
 END_MAIN
 
 Units1:
-	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R6 [Rapier,Vulnerary] NoAI
-	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R8 [Vulnerary] NoAI
-	UNIT Seth Soldier 0x0 Level(7,Ally,0) [15,10] 0 0 1 REDA11R7 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
-	UNIT Gilliam Knight_F 0x0 Level(4,Ally,0) [15,10] 0 0 1 REDA13R7 [IronAxe,Vulnerary] NoAI
-	UNIT Franz Archer 0x0 Level(1,Ally,0) [15,10] 0 0 1 REDA12R7 [IronBow,Vulnerary] NoAI
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [11,15] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Ephraim EphraimLord 0x0 Level(1,Ally,0) [12,16] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Seth Soldier 0x0 Level(7,Ally,0) [12,14] 0 0 0 0 [IronLance,SlimLance,Axereaver,Vulnerary] NoAI
+	UNIT Gilliam Knight_F 0x0 Level(4,Ally,0) [13,15] 0 0 0 0 [IronAxe,Vulnerary] NoAI
+	UNIT Franz Archer 0x0 Level(1,Ally,0) [14,14] 0 0 0 0 [IronBow,Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [15,15] 0 0 0 0 [Heal, Vulnerary] NoAI
+	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [14,16] 0 0 0 0 [SlimSword, Vulnerary] NoAI
+	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [16,14] 0 0 0 0 [PoisonAxe, Vulnerary] NoAI
+	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [17,15] 0 0 0 0 [IronBlade, SlimSword, Vulnerary] NoAI
+	UNIT Garcia Shaman 0x0 Level(2, Ally, 0) [16, 16] 0 0 0 0 [Flux] NoAI
 	UNIT
 
 EnemyUnits:
 
-	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [10,6] 0 0 0 0 [PoisonAxe] AttackInRangeAI
-	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [11,3] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [4,6] 0 0 0 0 [PoisonAxe] AttackInRangeAI
-	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [5,0] 0 0 0 0 [IronSword] AttackInRangeAI	
-	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [5,9] 0 0 0 0 [PoisonAxe] AttackInRangeAI	
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [14,12] 0 0 0 0 [PoisonAxe] DefaultAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [10,13] 0 0 0 0 [IronLance] ChaseOnceApproachedAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [5,0] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [0,10] 0 0 0 0 [IronSword] AttackInRangeAI	
+	UNIT Colm Cavalier 0x0 Level(1, Enemy, 0) [0, 7] 0 0 0 0 [SlimLance] AttackInRangeAI
+	UNIT Innes Bonewalker_Bow 0x0 Level(1, Enemy, 0) [0, 5] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(1,Enemy,1) [4,4] 0 0 0 0 [IronBow] DefaultAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [0,16] 0 0 0 0 [PoisonAxe] ChaseOnceApproachedAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [3,9] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [15,5] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [5,16] 0 0 0 0 [PoisonAxe] ChaseOnceApproachedAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [12,0] 0 0 0 0 [PoisonAxe,MetissTome] AttackInRangeAI
+	UNIT 0x80 Archer 0x0 Level(1,Enemy,1) [10,3] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [6,7] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [2,5] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [12,7] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [18,7] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [18,13] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Fighter 0x0 Level(1,Enemy,1) [8,5] 0 0 0 0 [PoisonAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary 0x0 Level(1,Enemy,1) [12,14] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Soldier 0x0 Level(1,Enemy,1) [3,13] 0 0 0 0 [IronLance] DefaultAI
 	UNIT
 
 Traps1:
@@ -172,6 +162,11 @@ Text(0x0903)
 CALL $9EE2C4
 FADI 16
 REMOVEPORTRAITS	
+SetBackground(0x1)
+Text(0x0913)
+CALL $9EE2C4
+FADI 16
+REMOVEPORTRAITS
 SetBackground(0x6)
 Text(0x0904)
 CALL $9EE2C4

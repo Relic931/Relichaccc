@@ -165,7 +165,7 @@ Units1:
 	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,6] 0 0 1 REDA14R7 [Rapier,Vulnerary] NoAI	
 	UNIT
 Units2:
-	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R8 [Heal, EnergyRing, Vulnerary] NoAI
+	UNIT Moulder Priest 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R8 [Heal, Vulnerary] NoAI
 	UNIT Vanessa Thief 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA10R7 [SlimSword, Vulnerary] NoAI
 	UNIT Ross Journeyman_1 0x0 Level(1, Ally, 0) [12,6] 0 0 1 REDA13R8 [PoisonAxe, Vulnerary] NoAI
 	UNIT Neimi Mercenary 0x0 Level(3, Ally, 0) [12,6] 0 0 1 REDA13R8 [IronBlade, SlimSword, Vulnerary] NoAI

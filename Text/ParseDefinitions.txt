@@ -62,7 +62,6 @@
 [LoadMC] = [LoadFace][0x2][0x1]
 [LoadTransporter] = [LoadFace][0x14][0x1]
 [LoadJagen] = [LoadFace][0x4][0x1]
-[
 [Clear] = [ClearFace]
 [LoadCurrent] = [LoadFace][0xFF][0xFF]
 [Nl]=[NL]

@@ -64,6 +64,41 @@ ORG 0xB523C
 SHORT 0x00 0x00
 POP
 
+//Teq Aid Rework
+PUSH
+
+ORG $189E4
+SHORT 0x0040 //lsl r0,1; checking if unit is promoted rather than female
+ORG $189EA
+SHORT 0xD009 //changed bne to beq
+
+POP
+
+//Difficulty Skip
+PUSH; ORG 0xA20164
+    POIN (prFixedDifficulty+1)
+POP
+
+prFixedDifficulty:
+    SHORT (0x2200 | 1) // Difficulty: 0 for easy, 1 for normal, 2 for hard
+    SHORT 0x2300
+    SHORT 0x212A
+    SHORT 0x5442
+    SHORT 0x213D
+    SHORT 0x5443
+    SHORT 0x4770
+    ALIGN 4
+
+//5x
+PUSH
+  ORG $24DF2 //show gold in ch5x
+  SHORT 0
+  ORG $3164F //allow Supply on prep screen in ch5x
+  BYTE 0xE0
+  ORG $3327B
+  BYTE 0xE0
+POP
+
 
 
   //HP Bars (and effective weapon warning)
@@ -191,6 +226,9 @@ POP
   
   ALIGN 4
   #include "FixedAutoLevels.event"
+  
+  ALIGN 4
+  #include "Multi Prohibits the Crit by Item/Installer.event"
 
   ALIGN 4
   #include "ModularMinimugBox-master/Installers/MMBInstallerBpat.event"
@@ -203,6 +241,9 @@ POP
   
   ALIGN 4
   #include "WTEditor.event"
+  
+  ALIGN 4
+  #include "EVENTSCRIPT_give_exp/give_exp_Install.event"
   
   ALIGN 4
   #include "ToggleDeploymentSwapping/ToggleDeploymentSwappingInstaller.event"

@@ -12,12 +12,18 @@ POIN $0 $0 $0
 POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
+
 TurnBasedEvents:
 TurnEventPlayer(0x24, TurnEvent1, 6)
+TurnEventPlayer(0x25, TurnEvent2, 9)
 END_MAIN
 
 TurnEvent1:
 LoadReinforcements(Turn6Dudes)
+ENDA
+
+TurnEvent2:
+LoadReinforcements(Turn9Dudes)
 ENDA
 
 Turn6Dudes:
@@ -26,10 +32,17 @@ Turn6Dudes:
 	UNIT 0x80 Soldier 0x0 Level(15,Enemy,1) [1,1] 0 0 0 0 [SteelLance] DefaultAI
 	UNIT 0x80 Archer 0x0 Level(15,Enemy,1) [1,0] 0 0 0 0 [SteelBow] DefaultAI
 	UNIT
+	
+Turn9Dudes:
+	UNIT 0x80 Journeyman_1 0x0 Level(2,Enemy,1) [10,21] 0 0 0 0 [SteelAxe] DefaultAI
+	UNIT 0x80 Mercenary 0x0 Level(2,Enemy,1) [25,19] 0 0 0 0 [SteelSword] DefaultAI
+	UNIT 0x80 Journeyman_1 0x0 Level(2,Enemy,1) [21,10] 0 0 0 0 [SteelAxe] DefaultAI
+	UNIT
 
 ALIGN 32
 CharacterBasedEvents:
 CharacterEvent(0xD,TaekoTalk,Lute,Gerik)
+CharacterEvent(0xD,TaekoTalk,Ephraim,Gerik)
 END_MAIN
 
 TaekoTalk:
@@ -38,22 +51,22 @@ ENDA
 
 MiscBasedEvents:
 CauseGameOverIfLordDies
-AREA 0x15 Win [29, 0] [28, 1]
+AREA 0x15 Win [0, 0] [29, 22]
 END_MAIN
 
 Win:
-CHECK_INAREA 0x0F [29, 0] [28, 1]
-BEQ 1 1 0xC
-LABEL 1
+CHECK_INAREA 0x0F [0, 0] [29, 22]
+BEQ 1 0 0xC
 CALL EndingScene
+LABEL 1
 ENDA
 
 LocationBasedEvents:
 Chest(GoddessIcon,12,6)
-Chest(DevilAxe,15,16)
-Chest(SteelBow,3,17)	
-Door(23,4)
-Door(22,4)
+Chest(DevilAxe,15,20)
+Chest(SteelBow,3,21)	
+Door(27,4)
+Door(28,4)
 END_MAIN
 
 Dunno1:
@@ -91,7 +104,7 @@ Units1:
 	UNIT Natasha Fighter 0x0 Level(2,NPC,0) [1,0] 0 0 0 0 [PoisonAxe,Vulnerary] NoAI
 	UNIT Cormag Fighter 0x0 Level(3,NPC,0) [0,1] 0 0 0 0 [SteelAxe,Vulnerary] NoAI
 	UNIT Kyle Fighter 0x0 Level(2,Ally,0) [19,18] 0 0 0 0 [PoisonAxe,Vulnerary] NoAI
-	UNIT Forde Mercenary 0x0 Level(3,Ally,0) [18,19] 0 0 0 0 [IronAxe,Vulnerary] NoAI
+	UNIT Forde Fighter 0x0 Level(3,Ally,0) [18,19] 0 0 0 0 [IronAxe,Vulnerary] NoAI
 	UNIT Amelia Cleric 0x0 Level(1,Ally,0) [16,14] 0 0 0 0 [Mend,Vulnerary] NoAI
 	UNIT Artur Wight_Bow 0x0 Level(2,Ally,0) [16,14] 0 0 0 0 [SilverBow,IronBow,Vulnerary] NoAI
 	UNIT	
@@ -110,7 +123,7 @@ EnemyUnits:
 	UNIT 0x80 Soldier 0x0 Level(4,Enemy,1) [12,20] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT 0x80 Fighter 0x0 Level(4,Enemy,1) [22,10] 0 0 0 0 [SteelAxe] AttackInRangeAI
 	UNIT 0x80 Myrmidon_F 0x0 Level(1,Enemy,1) [12,11] 0 0 0 0 [IronSword] AttackInRangeAI
-	UNIT Gerik Myrmidon_F 0x0 Level(4,Enemy,1) [17,14] 0x02 0 0 0 [IronSword,ChestKey] AttackInRangeAI
+	UNIT Gerik Myrmidon_F 0x0 Level(4,Enemy,1) [4,5] 0x02 0 0 0 [IronSword,ChestKey] AttackInRangeAI
 	UNIT 0x80 Knight_F 0x0 Level(1,Enemy,1) [13,6] 0x02 0 0 0 [IronAxe, ChestKey] AttackInRangeAI
 	UNIT 0x80 Journeyman_1 0x0 Level(2,Enemy,1) [11,16] 0 0 0 0 [IronAxe] AttackInRangeAI
 	UNIT 0x80 Soldier 0x0 Level(2,Enemy,1) [16,20] 0 0 0 0 [IronLance] ChaseOnceApproachedAI
@@ -159,6 +172,6 @@ SetBackground(0x2)
 Text(0x0911)
 CALL $9EE2C4
 FADI 16
-MNC2 4
+MNC2 7
 NoFade
 ENDA
